@@ -6,6 +6,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class MainPage {
@@ -26,9 +28,12 @@ public class MainPage {
 
 	public void getList() {
 		ArrayList<String> obtainedList = new ArrayList<>();
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(studentTable));
 		List<WebElement> elementList = driver.findElements(studentTable);
 		// Get current list
 		for (WebElement we : elementList) {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(studentNameTableRow));
 			obtainedList.add(we.findElement(studentNameTableRow).getText());
 		}
 
