@@ -17,14 +17,14 @@ public class FirstNameSortTest {
 	LoginPage objLogin;
 	MainPage objStudent;
 	WebDriver driver;
-	String chromeVersion = "83.0.4103.116";
+	//String chromeVersion = "83.0.4103.116";
 	String siteURL = "http://ktvn-test.s3-website.us-east-1.amazonaws.com/";
 	String strEmail = "admin@test.com";
 	String strPasword = "test123";
 	
 	@BeforeTest
 	public void setup() {
-		WebDriverManager.chromedriver().browserVersion(chromeVersion).setup();
+		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("start-maximized"); 
 		driver = new ChromeDriver(options); 

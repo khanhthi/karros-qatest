@@ -2,7 +2,7 @@
 JDK - Java SE Development Kit 11: https://www.oracle.com/java/technologies/javase-jdk11-downloads.html 
 JRE - Java SE Runtime Environment 8: https://www.oracle.com/java/technologies/javase-jre8-downloads.html
 Eclipse: https://www.eclipse.org/downloads/
-Chrome version 83.0.4103.116
+Chrome browser
 
 
 2. Import Script
