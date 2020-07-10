@@ -10,12 +10,12 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
 import org.karros.webpages.LoginPage;
-import org.karros.webpages.StudentListPage;
+import org.karros.webpages.MainPage;
 
-public class SampleTestNgTest {
+public class FirstNameSortTest {
 
 	LoginPage objLogin;
-	StudentListPage objStudent;
+	MainPage objStudent;
 	WebDriver driver;
 	String chromeVersion = "83.0.4103.116";
 	String siteURL = "http://ktvn-test.s3-website.us-east-1.amazonaws.com/";
@@ -41,7 +41,7 @@ public class SampleTestNgTest {
 	
 	@Test
 	public void verifySortOrderFirstName() {	
-		objStudent = new StudentListPage(driver);
+		objStudent = new MainPage(driver);
 		objStudent.checkSortOrder();
 		System.out.print("First Name column is sorted correctly");
 	}

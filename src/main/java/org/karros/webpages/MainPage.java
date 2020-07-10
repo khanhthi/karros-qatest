@@ -8,15 +8,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-public class StudentListPage {
+public class MainPage {
 
 	WebDriver driver;
 	public static By txtEmail = By.name("email");
-	public static By locateTable = By.xpath(".//tbody//tr");
-	public static By locateRow = By.xpath(".//td[6]");
+	public static By studentTable = By.xpath(".//tbody//tr");
+	public static By studentNameTableRow = By.xpath(".//td[6]");
 	public static By titleFirstName = By.xpath(".//th[@title ='First Name']");
 
-	public StudentListPage(WebDriver driver) {
+	public MainPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
@@ -26,10 +26,10 @@ public class StudentListPage {
 
 	public void getList() {
 		ArrayList<String> obtainedList = new ArrayList<>();
-		List<WebElement> elementList = driver.findElements(locateTable);
+		List<WebElement> elementList = driver.findElements(studentTable);
 		// Get current list
 		for (WebElement we : elementList) {
-			obtainedList.add(we.findElement(locateRow).getText());
+			obtainedList.add(we.findElement(studentNameTableRow).getText());
 		}
 
 		// Sorting the array
@@ -38,11 +38,8 @@ public class StudentListPage {
 			sortedList.add(s);
 		}
 		Collections.sort(sortedList);
-		
-		System.out.print("Data sorted in list: " + obtainedList);
-		System.out.print("Expectation data sort: " + sortedList);
 
-		Assert.assertTrue(sortedList.equals(obtainedList));
+		Assert.assertEquals(obtainedList, sortedList);
 	}
 
 	public void checkSortOrder() {
